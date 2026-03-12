@@ -1,412 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>🎮 XO Game - 3 Days Trial with License & Room</title>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Kanit', sans-serif;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      margin: 0; padding: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: white;
-    }
 
-    h2 {
-      margin-top: 30px;
-      font-size: 32px;
-      user-select: none;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flash Uro Game Hub</title>
 
-    #joinForm {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      margin: 30px 0;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 320px;
-      max-width: 90vw;
-    }
+<style>
 
-    #joinForm input {
-      padding: 12px 20px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 10px;
-      font-size: 18px;
-      width: 100%;
-      outline: none;
-      background: rgba(255, 255, 255, 0.9);
-      color: #333;
-      box-sizing: border-box;
-      transition: box-shadow 0.3s ease;
-    }
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#0f0f0f,#1b2735);
+color:white;
+}
 
-    #joinForm input:focus {
-      box-shadow: 0 0 8px 3px #00c6ff;
-    }
+/* header */
 
-    #joinForm button {
-      padding: 12px 30px;
-      margin-top: 15px;
-      font-size: 18px;
-      font-weight: bold;
-      background: linear-gradient(to right, #0072ff, #00c6ff);
-      color: white;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-      width: 100%;
-    }
+header{
 
-    #joinForm button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 12px rgba(0,198,255,0.7);
-    }
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(10px);
 
-    #playersDisplay {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      user-select: none;
-    }
+}
 
-    table {
-      border-collapse: collapse;
-      margin-bottom: 15px;
-    }
-    td {
-      width: 80px;
-      height: 80px;
-      font-size: 36px;
-      border: 2px solid #333;
-      background: white;
-      color: black;
-      cursor: pointer;
-      user-select: none;
-      text-align: center;
-      vertical-align: middle;
-      transition: background 0.3s ease;
-      border-radius: 8px;
-    }
-    td.marked {
-      background: #d0f0c0;
-      color: #004d00;
-      font-weight: bold;
-    }
+.logo{
 
-    #timer {
-      font-size: 14px;
-      color: yellow;
-      font-weight: normal;
-      margin-bottom: 15px;
-      user-select: none;
-    }
+font-size:22px;
+font-weight:bold;
 
-    #status {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      user-select: none;
-    }
+}
 
-    #overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.85);
-      color: white;
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-    #overlay input, #overlay button {
-      padding: 10px;
-      margin: 5px;
-      font-size: 18px;
-      border-radius: 5px;
-      border: none;
-      width: 280px;
-      max-width: 90vw;
-    }
-    #overlay button {
-      background: #00c6ff;
-      font-weight: bold;
-      color: black;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    #overlay button:hover {
-      background: #0072ff;
-      color: white;
-    }
-    #licenseBox {
-      margin-top: 10px;
-      font-size: 16px;
-      color: red;
-      user-select: none;
-    }
+.admin{
 
-    #developerCredit {
-      background: gold;
-      color: black;
-      font-weight: bold;
-      font-size: 18px;
-      width: 100%;
-      text-align: center;
-      padding: 15px 0;
-      user-select: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      z-index: 10000;
-    }
+background:#ff9800;
+border:none;
+padding:8px 14px;
+border-radius:6px;
+cursor:pointer;
 
-    @media (max-width: 500px) {
-      #joinForm, #overlay input, #overlay button {
-        width: 90%;
-      }
-      td {
-        width: 60px;
-        height: 60px;
-        font-size: 28px;
-      }
-    }
-  </style>
+}
+
+/* banner */
+
+.banner{
+
+height:220px;
+background:url("https://picsum.photos/1200/400");
+background-size:cover;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:35px;
+font-weight:bold;
+text-shadow:0 0 10px black;
+
+}
+
+/* game grid */
+
+.games{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:25px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,0.05);
+border-radius:15px;
+overflow:hidden;
+backdrop-filter:blur(8px);
+transition:0.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 0 15px #00e5ff;
+
+}
+
+.card img{
+
+width:100%;
+height:140px;
+object-fit:cover;
+
+}
+
+.card h3{
+
+padding:10px;
+
+}
+
+.play{
+
+margin:10px;
+padding:10px;
+border:none;
+background:#00e5ff;
+color:black;
+font-weight:bold;
+border-radius:8px;
+cursor:pointer;
+width:90%;
+
+}
+
+/* fullscreen game */
+
+#gameScreen{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:none;
+z-index:999;
+
+}
+
+iframe{
+
+width:100%;
+height:100%;
+border:none;
+
+}
+
+.close{
+
+position:absolute;
+top:10px;
+right:10px;
+background:red;
+color:white;
+border:none;
+padding:10px;
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-  <h2>🎮 XO Game</h2>
+<header>
 
-  <div id="joinForm">
-    <input id="playerName" type="text" placeholder="👤 Enter your name..." />
-    <input id="roomId" type="text" placeholder="🏠 Enter room ID..." value="room3" />
-    <button onclick="checkAndJoin()">Join Room</button>
-  </div>
+<div class="logo">🎮 𝕆𝕟𝕝𝕚𝕟𝕖 𝔾𝕒𝕞𝕖 ℍ𝕦𝕓</div>
 
-  <div id="status"></div>
-  <div id="playersDisplay">👥 Player vs Player</div>
+<button class="admin">🎮</button>
 
-  <table id="board"></table>
+</header>
 
-  <div id="timer">Trial Time Left: 3 days</div>
+<div class="banner">
 
-  <!-- License Key Overlay -->
-  <div id="overlay">
-    <div style="margin-bottom: 10px;">⛔ Trial expired. Enter License Key:</div>
-    <input id="licenseInput" placeholder="Enter license key..." />
-    <button onclick="submitLicense()">✅ Activate</button>
-    <div id="licenseBox"></div>
-  </div>
+🔥 2026 Trending Games
 
-  <div id="developerCredit">
-    👨‍💻 Developed by <a href="https://t.me/Scarykkkk" target="_blank" style="color:black; text-decoration:underline;">@Scarykkkk</a> on Telegram
-  </div>
+</div>
 
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<div class="games">
 
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyClhTG2xUVZSYi7LnXtKVzUh4_G2PK-VYk",
-      databaseURL: "https://airvat-4ca28-default-rtdb.firebaseio.com",
-      projectId: "airvat-4ca28"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
+<div class="card">
 
-    const board = document.getElementById("board");
-    const overlay = document.getElementById("overlay");
-    const licenseInput = document.getElementById("licenseInput");
-    const licenseBox = document.getElementById("licenseBox");
-    const statusEl = document.getElementById("status");
-    const playersDisplay = document.getElementById("playersDisplay");
-    const joinForm = document.getElementById("joinForm");
-    const timerEl = document.getElementById("timer");
+<img src="https://image2url.com/r2/default/images/1773342849448-93847c30-f69b-4f3a-9162-df73223650ca.jpg" alt="image" />
 
-    let playerName = "";
-    let currentRoom = "";
-    let myMark = "";
-    let trialSeconds = 3 * 24 * 60 * 60; // 3 days in seconds = 259200
-    let trialInterval = null;
-    let licensed = false;
-    const validKeys = ["ABCD-1234", "VIP-9999"];
+<h3>𝕏𝕆 𝕆𝕟𝕝𝕚𝕟𝕖 𝔾𝕒𝕞𝕖</h3>
 
-    function checkAndJoin() {
-      playerName = document.getElementById("playerName").value.trim();
-      currentRoom = document.getElementById("roomId").value.trim();
-      if (!playerName || !currentRoom) {
-        alert("Please enter your name and room ID!");
-        return;
-      }
+<button class="play" onclick="playGame('https://koko856.github.io/koko856-XO-TalkPlay/')">
+PLAY
+</button>
 
-      joinForm.style.display = "none";
-      statusEl.textContent = "🕒 Connecting to room...";
+</div>
 
-      trialSeconds = 3 * 24 * 60 * 60;
-      licensed = false;
-      startTrial();
+<div class="card">
 
-      const playersRef = db.ref(`games/${currentRoom}/players`);
-      playersRef.once("value").then(snapshot => {
-        const players = snapshot.val() || {};
-        if (!players.X) {
-          playersRef.child("X").set(playerName);
-          myMark = "X";
-        } else if (!players.O) {
-          playersRef.child("O").set(playerName);
-          myMark = "O";
-        } else {
-          alert("Room is full!");
-          location.reload();
-          return;
-        }
-        setupBoard();
-        listenToBoard();
-        listenToPlayers();
-        listenToTurn();
-        statusEl.textContent = `Connected! You are '${myMark}' | Room: ${currentRoom}`;
-      });
-    }
+<img src="https://image2url.com/r2/default/images/1773342494199-3b125646-766e-4df2-9da9-63461a832fe2.jpg" alt="image" />
 
-    function setupBoard() {
-      board.innerHTML = "";
-      for (let r = 0; r < 3; r++) {
-        const row = board.insertRow();
-        for (let c = 0; c < 3; c++) {
-          const cell = row.insertCell();
-          cell.dataset.row = r;
-          cell.dataset.col = c;
-          cell.onclick = cellClicked;
-        }
-      }
-    }
+<h3>ℂ𝕙𝕖𝕔𝕜𝕖𝕣 𝕆𝕟𝕝𝕚𝕟𝕖 𝔾𝕒𝕞𝕖</h3>
 
-    function cellClicked(e) {
-      if (!licensed && trialSeconds <= 0) return;
-      const cell = e.target;
-      if (cell.innerText !== "") return;
+<button class="play" onclick="playGame('https://mmpbnoe390-sudo.github.io/CheckerOnlineGame-/')">
+PLAY
 
-      const r = cell.dataset.row;
-      const c = cell.dataset.col;
-      const turnRef = db.ref(`games/${currentRoom}/turn`);
 
-      turnRef.once("value").then(snap => {
-        const turn = snap.val() || "X";
-        if (turn !== myMark) return;
-        db.ref(`games/${currentRoom}/board/${r}_${c}`).set(myMark);
-        turnRef.set(myMark === "X" ? "O" : "X");
-      });
-    }
+</div>
 
-    function listenToBoard() {
-      db.ref(`games/${currentRoom}/board`).on("value", snap => {
-        const b = snap.val() || {};
-        for (let r = 0; r < 3; r++) {
-          for (let c = 0; c < 3; c++) {
-            const val = b[`${r}_${c}`] || "";
-            const cell = board.rows[r].cells[c];
-            if (cell.innerText !== val) {
-              cell.innerText = val;
-              if (val) cell.classList.add("marked");
-              else cell.classList.remove("marked");
-            }
-          }
-        }
-      });
-    }
+</div>
 
-    function listenToPlayers() {
-      db.ref(`games/${currentRoom}/players`).on("value", snap => {
-        const players = snap.val() || {};
-        const playerX = players.X || "Waiting";
-        const playerO = players.O || "Waiting";
-        playersDisplay.textContent = `${playerO}  vs  ${playerX}`;
-      });
-    }
+<div id="gameScreen">
 
-    function listenToTurn() {
-      db.ref(`games/${currentRoom}/turn`).once("value", snap => {
-        if (!snap.exists()) {
-          db.ref(`games/${currentRoom}/turn`).set("X");
-        }
-      });
-    }
+<button class="close" onclick="closeGame()">X</button>
 
-    function startTrial() {
-      updateTimerDisplay();
-      trialInterval = setInterval(() => {
-        trialSeconds--;
-        updateTimerDisplay();
-        if (trialSeconds <= 0) {
-          clearInterval(trialInterval);
-          if (!licensed) {
-            overlay.style.display = "flex";
-            disableBoard();
-            statusEl.textContent = `⏰ Trial expired! Please enter license key.`;
-          }
-        }
-      }, 1000);
-    }
+<iframe id="gameFrame"></iframe>
 
-    function updateTimerDisplay() {
-      if (trialSeconds > 0) {
-        const days = Math.floor(trialSeconds / (24*60*60));
-        const hours = Math.floor((trialSeconds % (24*60*60)) / 3600);
-        const minutes = Math.floor((trialSeconds % 3600) / 60);
-        const seconds = trialSeconds % 60;
-        timerEl.textContent = `Trial Time Left: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-      } else if (licensed) {
-        timerEl.textContent = "✅ Licensed User";
-      } else {
-        timerEl.textContent = "⏰ Trial expired";
-      }
-    }
+</div>
 
-    function disableBoard() {
-      for (let r=0; r<3; r++) {
-        for (let c=0; c<3; c++) {
-          const cell = board.rows[r]?.cells[c];
-          if(cell) cell.onclick = null;
-        }
-      }
-    }
+<script>
 
-    function enableBoard() {
-      for (let r=0; r<3; r++) {
-        for (let c=0; c<3; c++) {
-          const cell = board.rows[r]?.cells[c];
-          if(cell) cell.onclick = cellClicked;
-        }
-      }
-    }
+function playGame(link){
 
-    function submitLicense() {
-      const key = licenseInput.value.trim();
-      if (validKeys.includes(key)) {
-        licensed = true;
-        overlay.style.display = "none";
-        enableBoard();
-        updateTimerDisplay();
-        licenseBox.textContent = "";
-        statusEl.textContent = `✅ Licensed User | Room: ${currentRoom} | You are '${myMark}'`;
-      } else {
-        licenseBox.textContent = "❌ Invalid license key.";
-      }
-    }
-  </script>
+document.getElementById("gameFrame").src=link;
+document.getElementById("gameScreen").style.display="block";
+
+}
+
+function closeGame(){
+
+document.getElementById("gameScreen").style.display="none";
+document.getElementById("gameFrame").src="";
+
+}
+
+</script>
 
 </body>
 </html>
